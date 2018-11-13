@@ -108,6 +108,7 @@ export default {
               password: this.form.password
             }
           }).then(res => {
+            // console.log('res.data :', res.data);
             localStorage.userName = res.data.data.userName;
             localStorage.userId = res.data.data.userId;
             localStorage.token = res.data.data.token;
@@ -123,6 +124,7 @@ export default {
         url: "getMenu",
         method: "GET"
       }).then(res => {
+        console.log('res.data.data :', res.data.data);
         // 提取菜单数组，交给本地存储
         let menu = res.data.data.menu;
         localStorage.menu = JSON.stringify(menu);

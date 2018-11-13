@@ -1,10 +1,10 @@
 <!-- 顶部导航组件 -->
 <!-- 使用说明：<top-bar></top-bar> -->
 <template>
-    <div id="topbar-wrap" :class="{ topCollapsed: isCollapse }">
+    <div id="topbar-wrap" >
         <el-row type="flex" justify="space-between">
             <el-col :span="5">
-                <i :class="[isCollapse? 'nav-rotate': '','fa fa-bars']" @click="toggleSiderBar"></i>
+                <i :class="[isCollapse? 'fa-rotate-90': '','fa fa-bars']" @click="toggleSiderBar"></i>
             </el-col>
             <el-col :span="12">
                 <el-row type="flex" class="row-right" justify="end">
@@ -42,6 +42,7 @@ export default {
   },
   methods: {
     toggleSiderBar() {
+      // 默认情况下，模块内部的 action、mutation 和 getter 是注册在全局命名空间的——这样使得多个模块能够对同一 mutation 或 action 作出响应。 所以：要调用common中getters不需要this.$store.common,只需要this.$store.commit就行了
       this.$store.commit('toggleSiderBar')
     },
     toggleLanguage() {

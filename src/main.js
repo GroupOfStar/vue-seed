@@ -118,7 +118,7 @@ axios.interceptors.request.use(
     },
     error => {
         console.log(error) // for debug
-        Promise.reject(error)
+        return Promise.reject(error)
     }
 )
 
